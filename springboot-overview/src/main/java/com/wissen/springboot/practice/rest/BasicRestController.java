@@ -12,4 +12,9 @@ public class BasicRestController {
     public String HelloWorld() {
         return "Hello World";
     }
+
+    @GetMapping("/quit")
+    public String Quit() {
+        return "Have a nice day. Bye!";
+    }
 }
