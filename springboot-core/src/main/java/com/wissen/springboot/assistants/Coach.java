@@ -1,4 +1,4 @@
-package com.wissen.springboot.practice;
+package com.wissen.springboot.assistants;
 
 public interface Coach {
 

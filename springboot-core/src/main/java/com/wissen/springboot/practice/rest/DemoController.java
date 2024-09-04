@@ -1,6 +1,6 @@
 package com.wissen.springboot.practice.rest;
 
-import com.wissen.springboot.practice.Coach;
+import com.wissen.springboot.assistants.Coach;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +15,11 @@ public class DemoController {
 
     @GetMapping("/dailyworkout")
     public String getDailyWorkout() {
+        return myCoach.getDailyWorkout();
+    }
+
+    @GetMapping("/extrapractice")
+    public String getExtraPractice() {
         return myCoach.getDailyWorkout();
     }
 }
