@@ -22,6 +22,6 @@ public class BasicRestController {
 
     @GetMapping("/quit")
     public String Quit() {
-        return "Have a nice day." + bye;
+        return "Have a nice day.  " + bye;
     }
 }
