@@ -14,6 +14,7 @@ public class DemoController {
 
     @Autowired
     public DemoController(@Qualifier("trackCoach") Coach myCoach) {
+        System.out.println("Inside Constructor: " + getClass().getSimpleName());
         this.myCoach = myCoach;
     }
 

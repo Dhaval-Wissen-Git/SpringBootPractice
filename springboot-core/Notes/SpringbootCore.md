@@ -67,5 +67,19 @@
 * Only one class must be marked with @Primary Annotation.
 
 * Among @Primary and @Qualifier, @Qualifier has higher priority.
-* @Primary leaves it upto implementation whereas @Qualifier allows you to be very specific.
+* @Primary leaves it up to implementation whereas @Qualifier allows you to be very specific.
+
+# Lazy Initialization
+By default, when the application is initialized, all Beans are Initilized. Spring creates an instance of each and makes them available.
+This can be traced by adding println statements in the constructors.
+Instead of creating all beans upfront, we can specify Lazy Initialization, ie. Beans will be initialized when:
+* needed for Dependency Injection
+* Explicitly requested
+
+Use @Lazy Annotation on the classes that are not required upfront.
+Other way to achieve same result, without individually marking each class with @Lazy annotation, dev can use 
+set in the _application.properties_ file:
+__spring.main.lazy-initialization=true__
+* __Lazy initialization is disabled by default as the configuration issues may be discovered late, until bean is created.__ 
+
 

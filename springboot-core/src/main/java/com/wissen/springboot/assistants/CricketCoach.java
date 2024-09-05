@@ -9,6 +9,7 @@ public class CricketCoach implements Coach {
     private String workout;
 
     public CricketCoach(){
+        System.out.println("Inside Constructor: " + getClass().getSimpleName());
          this.workout = "Default Daily workout: Practice fast bowling for 15 minutes";
     }
 
