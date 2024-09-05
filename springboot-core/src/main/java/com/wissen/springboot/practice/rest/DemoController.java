@@ -7,15 +7,20 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
+
 @RestController
 public class DemoController {
 
     private Coach myCoach;
 
+    private Coach anotherCoach;
+
     @Autowired
-    public DemoController(@Qualifier("trackCoach") Coach myCoach) {
+    public DemoController(@Qualifier("trackCoach") Coach myCoach, Coach anotherCoach) {
         System.out.println("Inside Constructor: " + getClass().getSimpleName());
         this.myCoach = myCoach;
+        this.anotherCoach = anotherCoach;
     }
 
     // Set specific coach
@@ -42,5 +47,12 @@ public class DemoController {
     @GetMapping("/extrapractice")
     public String getExtraPractice() {
         return myCoach.getDailyWorkout();
+    }
+
+    @GetMapping("/checkBeanScope")
+    public String checkBeanScope() {
+        return "Comparing Bean Scope: myCoach and anotherCoach"
+                + (myCoach == anotherCoach ? " - SAME BEAN" : " - DIFFERENT BEAN ")
+                + "\n myCoach Annotations: " + Arrays.toString(myCoach.getClass().getAnnotations());
     }
 }
