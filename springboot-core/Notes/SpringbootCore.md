@@ -34,6 +34,16 @@
 * Using setter method, Dev passes the instance of the Coach Implementation
 * The instance can be passed to any method that has @Autowired annotation.
 
+## C. Field Injection
+* Not recommended by the spring.io dev team
+* Field injection makes it harder to Unit test the code
+* Inject dependencies by setting field values on class directly, even the private fields
+* Accomplished by using Java reflections
+
+### Development Process - 
+1. Configure the dependency using @Autowired annotation
+2. Annotate the field with @Autowired
+
 ## Usage 
 ### Constructor Injection
   * Use this when you have required dependencies
@@ -42,4 +52,20 @@
 ### Setter Injection
   * Use this when you have optional dependencies, such that if dependency is not provided, your app can provide resonable default logic.
 
+
+# Multiple Implementations
+* When there are multiple Beans implementation of same interface, that can be injected, Spring will report an error.
+* Dev can specify to Spring, which implementation class to inject by using below Qualifiers:
+
+## @Qualifier Annotation
+* @Qualifier Annotation must be used to Specify the Object instance (Bean) required.
+* @Qualifier Annotation can be used with both, Constructor & Setter Injection.
+
+## @Primary  Annotation
+* A class marked with @Primary annotation, tells Spring that, even though there may be multiple implementations, the Annotated class is Primary class to be used.
+* No need to use @Qualifier.
+* Only one class must be marked with @Primary Annotation.
+
+* Among @Primary and @Qualifier, @Qualifier has higher priority.
+* @Primary leaves it upto implementation whereas @Qualifier allows you to be very specific.
 
