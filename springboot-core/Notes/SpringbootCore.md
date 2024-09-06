@@ -125,5 +125,19 @@ flowchart LR;
 1. Add custom code (business logic) during initialization and destruction of Bean
 * Eg: Setting handles to DB, sockets, files, etc and cleaning the initialized handles.
 
-User `@PostConstruct` Annotation & `@PreDestroy` Annotation
+Use `@PostConstruct` Annotation & `@PreDestroy` Annotation
+
+___NOTE:___ _For Beans scoped as PROTOTYPE, spring doesnt call destroy method!
+In contrast to the other scopes, Spring does not manage the complete lifecycle of a prototype bean: the container instantiates, configures, and otherwise assembles a prototype object, and hands it to the client, with no further record of that prototype instance.
+Thus, although initialization lifecycle callback methods are called on all objects regardless of scope, in the case of prototypes, configured destruction lifecycle callbacks are not called. The client code must clean up prototype-scoped objects and release expensive resources that the prototype bean(s) are holding._
+
+## Configure Bean using Java Code
+### Development Process - 
+1. Create `@Configuration` class
+2. Define `@Bean` method to configure the bean
+3. Inject the bean into controller
+
+#### Use Case
+Make an existing 3rd party class available to Spring, whose source code may be unavailable or uneditable.
+
 

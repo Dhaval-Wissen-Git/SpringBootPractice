@@ -2,6 +2,7 @@ package com.wissen.springboot.practice.rest;
 
 import com.wissen.springboot.assistants.Coach;
 import com.wissen.springboot.assistants.CricketCoach;
+import com.wissen.springboot.practice.coaches.SwimCoach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +17,15 @@ public class DemoController {
 
     private Coach anotherCoach;
 
+    private Coach swimCoach;
+
     @Autowired
-    public DemoController(@Qualifier("trackCoach") Coach myCoach, Coach anotherCoach) {
+    public DemoController(@Qualifier("trackCoach") Coach myCoach, Coach anotherCoach, @Qualifier("aquaman") Coach swimCoach) {
         System.out.println("Inside Constructor: " + getClass().getSimpleName());
         this.myCoach = myCoach;
         this.anotherCoach = anotherCoach;
+
+        this.swimCoach = swimCoach;
     }
 
     // Set specific coach
@@ -54,5 +59,10 @@ public class DemoController {
         return "Comparing Bean Scope: myCoach and anotherCoach"
                 + (myCoach == anotherCoach ? " - SAME BEAN" : " - DIFFERENT BEAN ")
                 + "\n myCoach Annotations: " + Arrays.toString(myCoach.getClass().getAnnotations());
+    }
+
+    @GetMapping("/swim")
+    public String getSwim() {
+        return swimCoach.getDailyWorkout();
     }
 }
