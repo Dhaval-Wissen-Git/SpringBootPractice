@@ -106,4 +106,20 @@ The Bean scope can be defined by using the `@Scope` annotation on class.
 Eg:
   `@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYE)`
 
+# Bean Lifecycle
+```mermaid
+flowchart LR;
+    A(Container Started) --> B(Bean Initiated);
+    B --> C(Dependencies Injected);
+    C --> D(Internal Spring Processing);
+    D --> E(Custom Init Method);
+    E --> F(Ready for user);
+```
+---
+```mermaid
+flowchart LR;
+    A(Container Shutdown) --> B(Custom Destroy Method);
+    B --> C[Stop];
+```
+
 
