@@ -1,7 +1,7 @@
 # SpringBootPractice
 Springboot practice codes. Reference: Udemy Springboot course
 
-## For Notes Click - [here](springboot-core/Notes/SpringbootCore.md)
+## For Notes Click - [here](springboot-core/Notes/Index.md)
 
 
 # Links
