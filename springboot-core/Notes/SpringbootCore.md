@@ -121,5 +121,9 @@ flowchart LR;
     A(Container Shutdown) --> B(Custom Destroy Method);
     B --> C[Stop];
 ```
+### Purpose of knowing Bean Lifecycles
+1. Add custom code (business logic) during initialization and destruction of Bean
+* Eg: Setting handles to DB, sockets, files, etc and cleaning the initialized handles.
 
+User `@PostConstruct` Annotation & `@PreDestroy` Annotation
 
