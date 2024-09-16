@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.wissen.springboot</groupId>
-	<artifactId>springboot-core</artifactId>
+	<artifactId>springboot-hibernate-jpa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>practice</name>
 	<description>Demo project for Spring Boot</description>
