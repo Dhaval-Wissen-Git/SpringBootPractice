@@ -12,10 +12,10 @@ public class PracticeApplication {
 		SpringApplication.run(PracticeApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner commandLineRunner(){
-		return args -> {
-			System.out.println("Hello World!! Inside Command Line Runner");
-		};
-	}
+//	@Bean
+//	public CommandLineRunner commandLineRunner(){
+//		return args -> {
+//			System.out.println("Hello World!! Inside Command Line Runner");
+//		};
+//	}
 }
