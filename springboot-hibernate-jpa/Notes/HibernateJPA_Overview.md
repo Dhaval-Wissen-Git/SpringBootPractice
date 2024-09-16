@@ -10,7 +10,7 @@ flowchart LR
 ```
 
 ## Benefits of using Hibernate
-* It handles all of the low-level SQL Code.
+* It handles all the low-level SQL Code.
 * Minimizes the amount of JDBC code that the dev has to write.
 * Provides the ORM (Object-to-Relational Mapping)
 
@@ -63,4 +63,19 @@ Entity manager is a special JPA _helper_ object.
 * So, the Hibernate/JPA does a lot of low-level work, in the background, it all goes through the standard JDBC Api.
 * During our coding excercise, we'll configure Hibernate/JPA to talk to your database, and we'll actually configure it using a JDBC driver and we'll cover all the technical details.
 
+
+### Automatic Data Source Configuration
+* Based on configs, Springboot will automatically create Beans:
+  1. Datasource
+  2. EntityManager
+  3. etc
+* Dev can then inject these into the app.
+* In Maven POM file, add dependencies for:
+  1. JDBC Dirver (for the DB used, in our example Postgres)
+  2. Spring Data ORM: 
+* DB connection info from application.prooperties
+  * spring.datasource.url: url of DB
+  * spring.datasource.username: username - springstudent ( in our example )
+  * spring.datasource.password: password
+* No need to give the JDBC driver class name. Springboot will automatically detect based on URL.
 
