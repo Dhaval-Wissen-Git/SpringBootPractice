@@ -48,6 +48,8 @@ Entity manager is a special JPA _helper_ object.
 * In the background, JPA will take the Java Object, based on the mappings defined earlier, JPA will take the object info and store it in the appropriate table's appropriate columns.
 * JPA (ie. Hibernate) will do all the background work for dev.
 * In older days of JDBC, dev had to manually write SQL code and execute the SQL statements.
+* JPA Entity Manager and Data Source are automatically created by Springboot, based on application.properties
+* Dev has to autowire/inject the JPA Entity Manager into DAO.
 
 ## Retrieving a Java Object using JPA
 * Create Java Object
@@ -78,4 +80,33 @@ Entity manager is a special JPA _helper_ object.
   * spring.datasource.username: username - springstudent ( in our example )
   * spring.datasource.password: password
 * No need to give the JDBC driver class name. Springboot will automatically detect based on URL.
+
+
+### Development Process - 
+1. Annotate Java class
+2. Develop Java Code to perform DB operations
+
+## JPA Repository 
+* Spring Data JPA has a JPA Repository Interface.
+* This provides JPA database access with Minimal codeing.
+
+### What is difference between JPARepository and EntityManager?
+
+### When to use JPARepository and when to use EntityManager?
+* If you need low-level control and flexibility, use EntityManager.
+* If you want high-level of abstraction, use JPARepository.
+* Though both can be used in the same project.
+
+#### Entity Manager
+* Need Low-Level control over DB operations and want to write custom queries.
+* Provides low-level access to JPA and work directly with JPA Entities.
+* Complex queries that require advanced features such as native SQL queiers or stored procedure calls.
+* When you have custom requirements that are not easily handled by higher-level abstractions.
+
+#### JPA Repository
+* Provides commonly used CRUD operations out of the Box, reducing the amount of code you need to write.
+* Additional features such as pagination, sorting.
+* Generate queries based on method names.
+* Can also create custom queries using `@Query`
+
 
