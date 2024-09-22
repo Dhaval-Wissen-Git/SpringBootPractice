@@ -16,4 +16,12 @@ public class StudentService {
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
+
+    public String createStudent(Student student){
+        return studentRepository.save(student).toString();
+    }
+
+    public long getStudentCount(){
+        return studentRepository.count();
+    }
 }
