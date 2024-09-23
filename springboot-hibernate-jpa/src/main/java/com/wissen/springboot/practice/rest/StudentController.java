@@ -1,7 +1,7 @@
 package com.wissen.springboot.practice.rest;
 
 
-import com.wissen.springboot.practice.StudentService;
+import com.wissen.springboot.practice.service.StudentService;
 import com.wissen.springboot.practice.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package com.wissen.springboot.practice;
+package com.wissen.springboot.practice.service;
 
 import com.wissen.springboot.practice.model.Student;
 import com.wissen.springboot.practice.repository.StudentRepository;
