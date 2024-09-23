@@ -1,4 +1,4 @@
-package com.wissen.springboot.practice;
+package com.wissen.springboot.practice.service;
 
 import com.wissen.springboot.practice.model.Student;
 import com.wissen.springboot.practice.repository.StudentRepository;
@@ -15,5 +15,17 @@ public class StudentService {
 
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
+    }
+
+    public String createStudent(Student student){
+        return studentRepository.save(student).toString();
+    }
+
+    public long getStudentCount(){
+        return studentRepository.count();
+    }
+
+    public Student getStudentById(int id){
+        return studentRepository.findById(id).get();
     }
 }
