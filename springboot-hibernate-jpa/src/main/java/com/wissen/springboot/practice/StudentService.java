@@ -24,4 +24,8 @@ public class StudentService {
     public long getStudentCount(){
         return studentRepository.count();
     }
+
+    public Student getStudentById(int id){
+        return studentRepository.findById(id).get();
+    }
 }
